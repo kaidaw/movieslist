@@ -21,6 +21,16 @@ export function Button(){
     function getData(){
         ajax(thisUrl,callB) 
     }
-return <div onClick={getData}>CLICK ME TO GET DATA<div>{JSON.stringify(data)}</div></div>
+    
+return <div onClick={getData}>CLICK ME TO GET DATA<div>{
+    data?
+        data.map((film)=>{
+        return <div><div>{film.title}</div> <div>{film.year}</div> <div>{film.cast.join(" ")}</div> <div>{film.genres.join(" | ")}</div>
+        <div>================================================================================================================= </div>
+        </div>
+        })
+    :null
+    }</div></div>
 }
 
+//title year cast genres
